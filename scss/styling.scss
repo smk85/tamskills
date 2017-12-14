@@ -253,23 +253,23 @@ select {
 html.svg {
   .iconimgtasks {
 	background: url(../images/icon-list.svg) no-repeat;
-	background-image: icon(todo, #FFFFFF); 
+	background-image: icon(todo, white); 
 	}
 	.iconimgtasks-dark{
 	background: url(../images/icon-list.svg) no-repeat;
-	background-image: icon(todo, #273648); 
+	background-image: icon(todo, black); 
 	}
   .iconimguser{
 	background: url(../images/icon-user.svg) no-repeat;
-	background-image: icon(usr, #FFFFFF); 
+	background-image: icon(usr, white); 
 	}
 	.iconimgcard{
 	background: url(../images/icon-creditcard.svg)no-repeat;
-	background-image: icon(creditcard, #FFFFFF); 
+	background-image: icon(creditcard, white); 
 	}
 	.iconimgSetting{
 	background: url(../images/icon-settings.svg)no-repeat;
-	background-image: icon(settings, #FFFFFF);
+	background-image: icon(settings, white);
 	}
 	.iconclose
 	{
@@ -278,7 +278,7 @@ html.svg {
 	}
 	.leftarrow{
 	background: url(../images/icon-arrow-left.svg)no-repeat;
-	background-image: icon(arrow-left, #FFFFFF);
+	background-image: icon(arrow-left, white);
 	}
 	select{
 	    background-image: url("../images/icon-arrow-down-small-dark.svg")
