@@ -1,0 +1,441 @@
+@font-face { 
+font-family: Dubai-Regular; 
+src:url('webfonts/DubaiW23-Regular.eot'); src: 
+url("webfonts/DubaiW23-Regular.woff") format("woff"),
+url("webfonts/DubaiW23-Regular.woff2") format("woff2");
+}
+@font-face { 
+font-family: Dubai-Medium; 
+src:url('webfonts/DubaiW23-Medium.eot'); src: 
+url("webfonts/DubaiW23-Medium.woff") format("woff"),
+url("webfonts/DubaiW23-Medium.woff2") format("woff2"); } 
+/*** courtesy of https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images ***/
+@function _buildIcon($icon) {
+  $icon: '%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2224%22%20height%3D%2224%22%3E#{$icon}%3C%2Fsvg%3E';
+  @return $icon;
+}
+
+@function _buildPath($path, $parameters) {
+  $icon: '%3Cpath%20fill%3D%22#{map-get($parameters, color)}%22%20stroke%3D%22#{map-get($parameters, stroke-color)}%22%20stroke-width%3D%22#{map-get($parameters, stroke-width)}%22%20style%3D%22#{map-get($parameters, css)}%22%20d%3D%22#{$path}%22%20%2F%3E';
+  @return $icon;
+}
+
+@function icon(
+  $icon-name,
+  $color, 
+  $stroke-color: transparent,
+  $stroke-width: 0,
+  $css: '' // arbitrary css
+  ){
+    $parameters: (
+      'color': $color,
+      'stroke-color': $stroke-color,
+      'stroke-width': $stroke-width,
+      'css': $css
+    );
+    
+    $icons: (
+      heart: _buildPath('M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z', $parameters),
+      star: _buildPath('M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z', $parameters),
+	  todo: _buildPath('M2,5 L22,5 L22,8 L2,8 L2,5 Z M2,11 L22,11 L22,14 L2,14 L2,11 Z M2,17 L22,17 L22,20 L2,20 L2,17 Z',$parameters),
+	  usr: _buildPath('M3,5 L3,19 C3,20.1 3.89,21 5,21 L19,21 C20.1,21 21,20.1 21,19 L21,5 C21,3.9 20.1,3 19,3 L5,3 C3.89,3 3,3.9 3,5 Z M15,9 C15,10.66 13.66,12 12,12 C10.34,12 9,10.66 9,9 C9,7.34 10.34,6 12,6 C13.66,6 15,7.34 15,9 Z M6,17 C6,15 10,13.9 12,13.9 C14,13.9 18,15 18,17 L18,18 L6,18 L6,17 Z',$parameters),
+	  creditcard: _buildPath('M20,4 L4,4 C2.89,4 2.01,4.89 2.01,6 L2,18 C2,19.11 2.89,20 4,20 L20,20 C21.11,20 22,19.11 22,18 L22,6 C22,4.89 21.11,4 20,4 Z M20,18 L4,18 L4,12 L20,12 L20,18 Z M20,8 L4,8 L4,6 L20,6 L20,8 Z',$parameters),
+	  settings: _buildPath('M19.43,12.98 C19.47,12.66 19.5,12.34 19.5,12 C19.5,11.66 19.47,11.34 19.43,11.02 L21.54,9.37 C21.73,9.22 21.78,8.95 21.66,8.73 L19.66,5.27 C19.54,5.05 19.27,4.97 19.05,5.05 L16.56,6.05 C16.04,5.65 15.48,5.32 14.87,5.07 L14.49,2.42 C14.46,2.18 14.25,2 14,2 L10,2 C9.75,2 9.54,2.18 9.51,2.42 L9.13,5.07 C8.52,5.32 7.96,5.66 7.44,6.05 L4.95,5.05 C4.72,4.96 4.46,5.05 4.34,5.27 L2.34,8.73 C2.21,8.95 2.27,9.22 2.46,9.37 L4.57,11.02 C4.53,11.34 4.5,11.67 4.5,12 C4.5,12.33 4.53,12.66 4.57,12.98 L2.46,14.63 C2.27,14.78 2.22,15.05 2.34,15.27 L4.34,18.73 C4.46,18.95 4.73,19.03 4.95,18.95 L7.44,17.95 C7.96,18.35 8.52,18.68 9.13,18.93 L9.51,21.58 C9.54,21.82 9.75,22 10,22 L14,22 C14.25,22 14.46,21.82 14.49,21.58 L14.87,18.93 C15.48,18.68 16.04,18.34 16.56,17.95 L19.05,18.95 C19.28,19.04 19.54,18.95 19.66,18.73 L21.66,15.27 C21.78,15.05 21.73,14.78 21.54,14.63 L19.43,12.98 Z M12,15.5 C10.07,15.5 8.5,13.93 8.5,12 C8.5,10.07 10.07,8.5 12,8.5 C13.93,8.5 15.5,10.07 15.5,12 C15.5,13.93 13.93,15.5 12,15.5 Z', $parameters),
+	  /** The following has been converted from a polygon svg file to a path  using https://codepen.io/jakealbaugh/pen/GZwgzV tool **/
+	  close: _buildPath('M12.6666667 4.27333333 11.7266667 3.33333333 8 7.06 4.27333333 3.33333333 3.33333333 4.27333333 7.06 8 3.33333333 11.7266667 4.27333333 12.6666667 8 8.94 11.7266667 12.6666667 12.6666667 11.7266667 8.94 8z', $parameters),
+	  arrow-left: _buildPath('M20 11 7.83 11 13.42 5.41 12 4 4 12 12 20 13.41 18.59 7.83 13 20 13z',$parameters)
+    
+	);
+
+
+    $icon: _buildIcon(map-get($icons, $icon-name));
+    @return url("data:image/svg+xml;charset=utf8,#{$icon}");
+ }
+body{
+	/*line height is multiple of the font size and we want it to be in 8 multiples */
+	font-size:8px;
+	width:100%;
+	margin:0;
+	font-family:"Dubai-Regular";
+	background-color: #273648; 
+	}
+select { direction: rtl; }
+.outerBody{
+	width:100%;
+/*	min-height:100vh;*/
+	height:100%;
+	 overflow: hidden;
+    position: relative;
+	}
+.outerBody:after {
+    content: "";
+    clear: both;
+}
+.font18{
+	/* 8 is the base and the design states it is 18px so 18/8 will give us 2.25em */
+	font-size:2.25em;
+	}
+.titles{
+	color:#30394A;
+	font-size:1.11111em;
+	}
+.vmenu{
+	/*in the design the full width is 1024 with the menu being 200px in width if we divide it by 1024 it is almost 0.195%*/
+	width:19.5%; 
+	float: right; 
+	background-color: #273648; 
+	color:#EDF4FC;
+	/*line height is 48px in the design and font is 18px*/
+	line-height:2.6em;	
+	direction:rtl;
+	height:100%;
+	-webkit-transition: width 0.6s ease-out 0s; transition: width 0.6s ease-out 0s;
+	}
+.imglogodiv{
+	/* padding after calculating from the design 16px from the 200px 16/200 *100*/
+	padding-top:8%;
+	padding-right:8%;
+		}
+.imglogo{
+	/*after calculating the width from the design 83px/200px *100 */
+	width:41.5%;
+		}
+.imglogosearchdiv
+{
+	float:right;
+	margin:1%;
+	visibility:hidden;
+	cursor:pointer;
+	width:12%;
+}
+.imglogosearchdiv img
+{
+	width: 65%;
+	vertical-align: super;
+}
+.menuoutput{
+	/*in similar method and the rest of the 100% in width is 80%*/
+	width:80.5%; 
+	float: left; 
+	background-color: #f9f9f9; 
+	color:#273648;
+	/*line height is 64px in the design*/
+	line-height:3.55em;
+	height:100%;
+	-webkit-transition: width 0.6s ease-out 0s; transition: width 0.6s ease-out 0s;
+	}
+.searchenginesect{
+	margin-top:0;
+	background-color:#FFFFFF;
+	box-shadow: 0px 2px 10px -2px #EFEFEF;
+	-moz-box-shadow:0px 2px 10px -2px #EFEFEF;
+	-webkit-box-shadow: 0px 2px 10px -2px #EFEFEF;
+	}
+.inlinesect{
+	display:inline-block;
+	}
+.floatleft{
+	float:left;
+	}
+.searchform{
+	/* in the design it is 8px and the section is 824px 8/824 * 100*/	
+	margin:0.97%;
+	margin-top:0;
+	}
+.searcheng{
+	text-align:right;
+	/*given in the design width of 256px in a 824px*/
+	width:31%;
+	border-radius:4px;
+	border: solid 1px #DDDDDD;	
+}
+.searchengwidth{
+	/*given in design 213.3 in a 256 parent element */
+	width:83%;
+	text-align:right;
+	border:none;
+	/*according to design 16px in a 256px section */
+	margin-right:6.25%;
+	color:#B5B5B5;
+	line-height:1.6em;
+	/*to take the containers font size of 18px*/
+	font-size:1em;
+	font-family:Dubai-Regular;
+}
+.searchdrop{
+	/* given in the design 160px 160/824 * 100*/
+	width:19.4%;
+	margin-top:0.97%;
+	margin-bottom:0.97%;
+	border-radius:4px;
+	border: solid 1px #DDDDDD;	
+	text-align:center;
+	text-decoration:none;
+}
+select:focus , input:focus{
+    outline: none;
+}
+select {
+	 -moz-appearance: window;
+    -webkit-appearance: none;
+    background: url("../images/icon-arrow-down-small-dark.png") left center no-repeat;
+	background-size: 1.3vw;
+    
+}
+@-moz-document url-prefix() {
+.wrapper {
+     background: url("/images/icon-arrow-down-small-dark.svg") left center no-repeat;
+	 background-size: 2vw;
+  }
+}
+.searchdropwidth{
+	/* given in the design 128px in a 160px parent 128/160 * 100*/
+	width:80%;
+	text-align:right;
+	border:none;
+	/*according to design 16px in a 256px section */
+	margin-right:6.25%;
+	color:#565656;
+	line-height:1.6em;
+	font-size:1em;
+	font-family:Dubai-Regular;
+}
+.taskssection{
+	margin:1.94%;
+	direction:rtl;
+}
+.tasksect{
+	background-color:#FFFFFF;
+	box-shadow: 2px 2px 5px #EFEFEF;
+	color:#666666;
+}
+.menucontent a{
+	text-decoration:none;
+	color:#EDF4FC;
+	vertical-align:middle;
+}
+.menutext
+{
+	width:62%
+}
+.icons{
+	/*found it more aligned using 2em on height and 10% width*/
+	width: 10%;
+    height: 2em;
+    margin-left: 5%;
+    margin-right: 5%;
+	vertical-align: middle;
+	display: inline-block;  
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+.menuicons {
+    width: 3.2vw;
+    height: 4vw;
+    margin-left: 0%;
+    margin-right: 0%;
+    vertical-align: middle;
+    display: inline-block;
+    float: right;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+.iconarrow{
+	width: 10%;
+	height: 2em;
+	margin: 2%;
+	margin-left: 6%;	
+	vertical-align: middle;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+html.svg {
+  .iconimgtasks {
+	background: url(../images/icon-list.svg) no-repeat;
+	background-image: icon(todo, #FFFFFF); 
+	}
+	.iconimgtasks-dark{
+	background: url(../images/icon-list.svg) no-repeat;
+	background-image: icon(todo, #273648); 
+	}
+  .iconimguser{
+	background: url(../images/icon-user.svg) no-repeat;
+	background-image: icon(usr, #FFFFFF); 
+	}
+	.iconimgcard{
+	background: url(../images/icon-creditcard.svg)no-repeat;
+	background-image: icon(creditcard, #FFFFFF); 
+	}
+	.iconimgSetting{
+	background: url(../images/icon-settings.svg)no-repeat;
+	background-image: icon(settings, #FFFFFF);
+	}
+	.iconclose
+	{
+	background: url(../images/icon-close.svg)no-repeat;
+	background-image: icon(close, rgba(68, 68, 68, 0.25));
+	}
+	.leftarrow{
+	background: url(../images/icon-arrow-left.svg)no-repeat;
+	background-image: icon(arrow-left, #FFFFFF);
+	}
+	select{
+	    background-image: url("../images/icon-arrow-down-small-dark.svg")
+	}
+}
+.iconimgtasks{
+	background-image: url(../images/icon-list.png);	
+}
+.iconimgtasks-dark{
+	background: url(../images/icon-listd.png) no-repeat; 
+}
+.iconimguser{
+	background-image: url(../images/icon-user.png);
+	}
+.iconimgcard{
+	background-image: url(../images/icon-creditcard.png);
+}
+.iconimgSetting{
+	background-image: url(../images/icon-settings.png);
+}
+html.no-cssmask .iconclose, .iconclose
+{
+	background: url(../images/icon-close.png) 50% 50% no-repeat;
+}
+.leftarrow{
+	background-image: url(../images/icon-arrow-left.png);
+}
+html.cssmask .iconclose
+	{
+	-webkit-mask-size: cover;
+	mask-size: cover;
+	background-color: #FFFFFF;
+    -webkit-mask: url(../images/icon-close.svg) no-repeat 50% 50%;
+    mask: url(../images/icon-close.svg) no-repeat 50% 50%;	
+	}
+.menuhover:hover, .selectedmenu
+{
+	background-color:#4A90E2;
+	color:#EDF4FC;
+}
+i{
+  display: inline-block;
+  padding:5%;
+  color:#FFFFFF;
+}
+.usersect{
+	position: absolute;
+    bottom: 0;
+    /*in the design the full width is 1024 with the menu being 200px in width if we divide it by 1024 it is almost 0.195%*/
+	width:19.5%; 
+	border-top:solid 2px #3D4A5A;
+}
+.imguserdiv{
+	padding:8%;
+}
+.arrowdiv
+{
+	width:10%;
+}
+.imguser{
+	/*after calculating the width from the design 48px/200px *100 */
+	width: 24%;
+	vertical-align: middle;
+}
+.arrowimg
+{
+	vertical-align: middle;
+	width: 1.3vw;
+}
+input[type="checkbox"] {
+    display: none;
+}
+label {
+  cursor: pointer;
+}
+input[type="checkbox"] + label span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 2em;
+    height: 2em;
+	margin-left:1.6%;
+	margin-right:1.6%;
+    background: url(../images/icon-uncheck.svg) 0px center no-repeat;	
+	background-size: 2vw;
+}
+input[type=checkbox]:checked + label span {
+	background: url(../images/icon-check.svg) 0px center no-repeat;
+	background-size: 2vw;
+}
+input[type=checkbox]:checked + label{
+	color: rgba(102,102,102,0.50);
+	text-decoration: line-through;
+}
+.clickable{
+	cursor: pointer;
+}
+.categoryicon{
+	float:left;
+	padding:0 1%;
+	margin-left:3.15%;
+	background-color:#E0E0E0;
+	color:#535353;
+	border-radius:100px;
+	/* 13px base for parent of element is is 18px 13/18 */
+	font-size:0.72222em;
+	font-weight:bold;
+	line-height: 2.8em;
+	font-family: Dubai-Regular;
+}
+.usertextsect{
+	margin-right:4%;
+	vertical-align:middle;
+	width:55%;
+}
+.username{
+	font-family: Dubai-Medium;
+	font-size: 0.7777778em;
+	color: #EDF4FC;
+	line-height:1.9em;
+}
+.company{
+	font-family: Dubai-Medium;
+	font-size: 0.611111em;
+	color: rgba(237,244,252,0.50);
+	line-height:1em;
+}
+.hidden{
+	visibility:hidden;
+}
+@media only screen and (max-width: 800px) {
+
+   .font18 {
+    font-size: 2.2vw;
+	}
+	.icons {
+    width: 2vw;
+    height: 2vw;
+    margin-left: 5%;
+    margin-right: 5%;
+    vertical-align: middle;
+    display: inline-block;
+	background-size: cover !important;
+	}
+	.iconarrow {
+    width: 2vw;
+    height: 2vw;
+    margin: 2%;
+    vertical-align: middle;
+    display: inline-block;
+	}
+	.menuicons{		
+	background-size: cover !important;
+	}
+	.iconclose {
+    margin-top: 6%;
+	}
+	.arrowdiv {
+    width: 5%;
+	}
+}

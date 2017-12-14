@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="images/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="libraries/jquery-1.12.0.min.js" ></script>
+<script src="scripts/jquery.js" type="text/javascript"></script>
+<script src="scripts/modernizr-custom.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="css/styling.css" rel="stylesheet" type="text/css">
+<title>Tam Exam Design</title>
+</head>
+<body>
+<div class="outerBody">
+<div id="vnav" class="vmenu font18">
+<div id="closenav" class="iconclose icons inlinesect floatleft clickable"></div>
+<div class="imglogodiv"><img src="images/logo.png" class="imglogo"></div>
+<div class="menucontent">
+<a href="#" ><div id="tasksmenu" class="menuhover selectedmenu"><div class="iconimgtasks icons"></div><div class="inlinesect menutext">المهام</div><div id="tasksarrow" class="leftarrow iconarrow"></div></div></a>
+<a href="#"><div id="membersmenu" class="menuhover"><div class="iconimguser icons"></div><div class="inlinesect menutext">الأعضاء</div><div id="membersarrow" class="leftarrow iconarrow hidden"></div></div></a>
+<a href="#"><div id="paysmenu" class="menuhover"><div class="iconimgcard icons"></div><div class="inlinesect menutext">الدفع و الفواتير</div><div id="paysarrow" class="leftarrow iconarrow hidden"></div></div></a>
+<a href="#"><div id="settingsmenu" class="menuhover"><div class="iconimgSetting icons"></div><div class="inlinesect menutext">إعدادات</div><div id="settingsarrow" class="leftarrow iconarrow hidden"></div></div></a>
+</div>
+<div class="usersect clickable">
+<div class="imguserdiv">
+<img src="images/avatar.png" class="imguser">
+<div class="inlinesect usertextsect"><div class="username">محمد عبدالله</div><div class="company">الشركة المحدودة</div></div>
+<div class="inlinesect arrowdiv"><img src="images/icon-arrow-down-small.png" class="arrowimg"></div>
+</div>
+</div>
+</div>
+<div id="navoutput" class="menuoutput font18">
+<div class="searchenginesect">
+<form class="searchform">
+<div class="searcheng inlinesect"><input type="text" class="searchengwidth" value="بحث"></div>
+<div class="searchdrop inlinesect clickable"><select class="searchdropwidth clickable">
+<option value="جميع المهام">جميع المهام</option>
+</select></div>
+<div class="imglogosearchdiv inlinesect"><img src="images/logo.png" title="Click For Menu" alt="Click For Menu" class="inlinesect"><div class="iconimgtasks-dark menuicons inlinesect "></div></div>
+</form>
+</div>
+<div id="sortable" class="taskssection">
+<div><span class="titles">التصميم:</span>
+<div id="sortable" class="tasksect">
+<div id="task1adiv"><input type="checkbox" id="task1a" checked /><label for="task1a"> <span id="taskspan1"></span>تصميم الشكل العام و تجهيز المهام و تسليمه</label><div></div></div>
+<div id="task2adiv"><input type="checkbox" id="task2a"/><label for="task2a"> <span></span>تحويل التصميم إلى HTML + CSS</label><div class="inlinesect categoryicon"><span>CSS</span></div></div>
+<div id="task3adiv"><input type="checkbox" id="task3a"/><label for="task3a"> <span></span>جعل التصميم متجاوب مع المتصفحات الصغيره (Responsive)</label><div class="inlinesect categoryicon"><span>CSS</span></div></div>
+<div id="task4adiv"><input type="checkbox" id="task4a"/><label for="task4a"> <span></span>جعل التصميم متوافق كحد أدنى مع IE9</label><div class="inlinesect categoryicon"><span>Browsers</span></div></div>
+<div id="task5adiv"><input type="checkbox" id="task5a"/><label for="task5a"> <span></span>استخدام SASS لجعل ألوان التصميم سهلة التغيير (Skin-able/Theme-able)</label><div class="inlinesect categoryicon"><span>SASS</span></div></div>
+</div>
+</div>
+<div ><span class="titles">تحسينات:</span>
+<div id="sortable" class="tasksect">
+<div><input type="checkbox" id="task1b"/><label for="task1b"> <span></span>إمكانية إخفاء القائمة الجانبيه</label></div>
+<div><input type="checkbox" id="task2b"/><label for="task2b"> <span></span>إمكانية تعليم المهام كمنتهيه</label></div>
+<div><input type="checkbox" id="task3b"/><label for="task3b"> <span></span>إمكانية إعادة ترتيب المهام و المجموعات</label></div>
+<div><input type="checkbox" id="task4b"/><label for="task4b"> <span></span>التوافقيه مع أجهزة اللمس</label></div>
+</div>
+</div>
+<div><span class="titles">أخرى:</span>
+<div id="sortable" class="tasksect">
+<div><input type="checkbox" id="task1c"/><label for="task1c"> <span></span>تسليم المشروع النهائي في git repository مع ملاحظة استخدام git-flow</label></div>
+<div><input type="checkbox" id="task2c"/><label for="task2c"> <span></span> إضافة لمساتك الخاصة في الأماكن التي تراها مناسبة مع ذكرسبب إضافتها </label></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
